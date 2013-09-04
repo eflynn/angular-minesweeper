@@ -5,12 +5,11 @@
 describe('controllers', function(){
   beforeEach(module('myApp.controllers'));
 
+  it('should have 10 rows', inject(function($controller) {
+    var scope = {};
 
-  it('should ....', inject(function() {
-    //spec body
-  }));
+    var ctrl = $controller('Minefield', {$scope: scope});
 
-  it('should ....', inject(function() {
-    //spec body
+    expect(scope.game.rows).toBe(10);
   }));
 });

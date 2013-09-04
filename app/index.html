@@ -2,19 +2,28 @@
 <html lang="en" ng-app="myApp">
 <head>
   <meta charset="utf-8">
-  <title>My AngularJS App</title>
+  <title>Minesweeper</title>
   <link rel="stylesheet" href="css/app.css"/>
 </head>
-<body>
-  <ul class="menu">
-    <li><a href="#/view1">view1</a></li>
-    <li><a href="#/view2">view2</a></li>
-  </ul>
+<body ng-controller="PageCtrl">
+  <button ng-click="onNewGame()">New Game</button>
 
-  <div ng-view></div>
+  <div ng-repeat="game in games">
+    <button ng-click="onRemove($index)">Remove</button>
+    <button ng-click="onClone(game)">Clone</button>
 
-  <div>Angular seed app: v<span app-version></span></div>
+    <table id="field">
+      <tr ng-repeat="row in game.tiles">
+        <td ng-repeat="tile in row">
+          <img class="tile" ng-click="onClick($event, tile, $parent.$index, $index)"
+               ng-src="img/{{tile|image}}"/>
+        </td>
+      </tr>
+    </table>
 
+    <p>{{game.status}}</p>
+
+  </div>
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
   -->

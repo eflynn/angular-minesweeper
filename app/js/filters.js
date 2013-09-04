@@ -3,8 +3,8 @@
 /* Filters */
 
 angular.module('myApp.filters', []).
-  filter('interpolate', ['version', function(version) {
-    return function(text) {
-      return String(text).replace(/\%VERSION\%/mg, version);
-    }
-  }]);
+  filter('image', function () {
+    return function(tile) {
+      return tile.flag ? 'flag.png' : 'blank.png';
+    };
+  });

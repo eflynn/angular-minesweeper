@@ -28,3 +28,15 @@
   content: "";
   padding: 0;
 }
+
+#field {
+  border-collapse: collapse;
+}
+
+#field td {
+  padding: 0;
+}
+
+.tile {
+  display: block;
+}
